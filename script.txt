@@ -1,0 +1,43 @@
+print hello, world
+Character Maya as m
+Character Alex as a
+Character narrator as na
+Character PeterSpankofski as pf
+Set weirdo to 0
+print she is {weirdo}
+na: Maya Weirdkle was writing a yaoi fanfic
+na: The fullfilment that she felt with writing  every  word was something out of this world!
+weirdo to 100
+na: it didnt matter to her how biogiocally or horible it was
+m: then Malfoy said to harry:" Get out of my way, mugle!
+m: and Harry said:.."yamadete kudasay,Draco-kun" 
+m: and they started kissing in a gay way
+m: Harty said:"no homo"
+m: because he didn't wanted to be gay
+na: her weirdness has increased to {weirdo}!
+m: (i freaking love yaoi fanfics)
+m: lets see which sexual fantasy  i am gonna write now-!
+na: Alex bulierman enters the class
+na: the exact moment Alex enters Maya attentioms changes to him
+a: hey, nerd!
+na: Akex grabs the nerd and force the nerd to turn around
+a: if it isn't micropeter spankofski
+pf: oh no its Alex bulliman!
+na: Alex sets free Peter
+a: its more satisfaying wcapture them when they run
+na: Peter runs away...but Alex catches him
+na: now, maya's  nose is bleeding,
+na: we could say that the butterflies in her tummy were flying realy low that day
+na: her level of feeling for him are...
+Set feelings to input
+print feelings
+na: her  feelings for Alex are {feelings}... no words
+na : Alex turns to Maya
+a: what the fuck are you watching?
+m: you, hehe
+a: then make your fucking ugly eye 
+print hy
+m:...
+a: why do you keep looking at me?
+a : i wont tolarate someone like you to look at me
+na:Alex grabs Maya hoodie
