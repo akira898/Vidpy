@@ -74,6 +74,20 @@ def seeCharcatersAndText():
                     characterIn=0
                     clicks += 1
                     rload(screen)
+            elif event.type==pygame.FINGERDOWN:
+                    print("I gave you the world you threw it away")
+                    print(dialogue)
+                    dialogueSeen.append(dialogue)
+                    textToShow=[]
+                    dialogue += 1
+                    for name, scene in JumpsAndScenes.sceneData.items():
+                        print(name)
+                        if scene.jump == dialogue:
+                            dialogue = scene.line
+                            break
+                    characterIn=0
+                    clicks += 1
+                    rload(screen)
         if Visuals.showImage:
             backgorundPath=os.path.join("projects", projectToRun, "images","cuarto.png")
             for name,item in Visuals.backgroundSchudele.items():
@@ -81,23 +95,23 @@ def seeCharcatersAndText():
                     imageToLook = os.path.join("projects", projectToRun, "images", name + ".png")
                     if os.path.exists(imageToLook):
                         background = pygame.image.load(imageToLook).convert_alpha()
-                        screen.blit(background, (500, 500))
-            for name, item in Visuals.imageSchudele.items():
-                if item["start"] <= dialogue and item["end"] > dialogue: 
-                    imageToLook = os.path.join("projects", projectToRun, "images", name + ".png")
-                    if not(os.path.exists(imageToLook))and os.path.exists(os.path.join("projects", projectToRun, "images", name + ".JPG")):
-                        imageToLook=os.path.join("projects", projectToRun, "images", name + ".JPG")
-                    if  os.path.exists(imageToLook): 
-                        image = pygame.image.load(imageToLook) 
-                        if Visuals.imageSchudele[name]["position"] == "left":
-                            screen.blit(image, (100, 100)) 
-                        elif Visuals.imageSchudele[name]["position"] == "right":
-                            screen.blit(image, (500, 100))
+                        screen.blit(background, (0, 0))
+            for name,instances in Visuals.imageSchudele.items():
+                for instance, item in instances.items():
+                    if item["start"] <= dialogue < item["end"]:
+                        imageToLook = os.path.join("projects",projectToRun,"images",name + ".png")
+                        if not os.path.exists(imageToLook):
+                            imageToLook = os.path.join("projects",projectToRun,"images", name + ".JPG")
+                        if os.path.exists(imageToLook):
+                            image = pygame.image.load(imageToLook).convert_alpha()
+                            if item["position"] == "left":
+                                screen.blit(image, (100, 100))
+                            elif item["position"] == "right":
+                                screen.blit(image, (500, 100))
+                            else:
+                                screen.blit(image, (300, 100))
                         else:
-                            screen.blit(image, (300, 100))
-                    else: 
-                        print("Image not ")
-                        image = pygame.Surface((100, 100))
+                            print("¡Yo no soy esta imagen!")
         if  dialogue < len(lines):
             if characterIn<  len(lines[dialogue]) and currentT-lastCharacterT>=50:
                 characterIn+=1
