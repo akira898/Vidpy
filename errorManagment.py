@@ -1,2 +1,0 @@
-def errors():
-    print("error")
