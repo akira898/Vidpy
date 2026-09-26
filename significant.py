@@ -1,8 +1,10 @@
 from refactored import script
 imagesInGame={}
 backgroundsIn={}
+dialgueIn=[]
 import os
 import main
+from clase1 import seeCharcatersAndText
 from main import projectToRun
 from Visuals import visualGestore
 import time
@@ -25,6 +27,7 @@ def Character(line):
     for i in script[line][1:]:
         if i=="as":
             names.append(" ".join(addName))
+            global names
             lookingAtWord=script[line].index("as")+1
             asCheck=True
             break
@@ -50,29 +53,14 @@ def speak(line):
     global whichDialogue
     global dialogueInGame
     global WorksAsName
+    global names
     dialgue=" ".join(script[line][1:])
-    if dialgue not in dialogueInGame :
-            characterIn=WorksAsName.index(script[line][0].rstrip(':'))
-            if whichDialogue<len(dialogueInGame) and len(dialogueInGame)>0:
-                print("delete")
-                del dialogueInGame[whichDialogue]
-                dialogueInGame.append(dialgue)
-                print (dialogueInGame)
-                with open ("dialgue.txt","w",encoding="utf-8") as Dial:
-                    for line in dialogueInGame:
-                        print(line)
-                        Dial.writelines(line + "\n")
-                del dialogueInGame[whichDialogue]
-                print(Dial)
-            else:
-                print(dialgue)
-                with open("dialgue.txt", "a", encoding="utf-8") as Dial:
-                    Dial.write(dialgue+ "\n")
-    else:
-        print("line in game")
+    dialgueInGame.append(dialgue)
     print(len(dialogueInGame))
     print(whichDialogue)
+    names.append()
     whichDialogue+=1
+    seeCharcatersAndText(dialgueInGame,names)
 
     
 def image(line):
