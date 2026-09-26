@@ -18,24 +18,11 @@ dialogue = 0
 pygame.init()
 
 
-def seeCharcatersAndText():
+def seeCharcatersAndText(text,characters):
     global running
     global dialogue
     clicks = 0
-    with open("projects\\"+projectToRun+"\\Vidpy"+"\\dialgue.txt", "a", encoding="utf-8") as speach:
-        speach.write("")
-    with open("projects\\"+projectToRun+"\\Vidpy"+"\\chractersTurn.txt", "a", encoding="utf-8") as characters:
-        characters.write("")
     global numberofImages
-
-    with open("projects\\"+projectToRun+"\\Vidpy"+"\\dialgue.txt", "r", encoding="utf-8") as speach:
-        global lines
-        for line in speach:
-            lines.append(line.rstrip("\n\r"))
-    with open("projects\\"+projectToRun+"\\Vidpy"+"\\chractersTurn.txt", "r", encoding="utf-8") as characters:
-        names = []
-        for line in characters:
-            names.append(line.rstrip("\n\r"))
 
     screen = pygame.display.set_mode((720,600))
     pygame.display.set_caption("Speaker")
@@ -63,8 +50,6 @@ def seeCharcatersAndText():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                     print("I gave you the world you threw it away")
                     print(dialogue)
-                    dialogueSeen.append(dialogue)
-                    textToShow=[]
                     dialogue += 1
                     for name, scene in JumpsAndScenes.sceneData.items():
                         print(name)
@@ -122,8 +107,8 @@ def seeCharcatersAndText():
             if characterIn<  len(lines[dialogue]) and currentT-lastCharacterT>=50:
                 characterIn+=1
                 lastCharacterT=currentT
-            text = font.render(lines[dialogue][:characterIn], True, (255, 255, 255))
-            textCharacter = font.render(names[dialogue], True, (255, 255, 255))
+            text = font.render(text[dialogue][:characterIn], True, (255, 255, 255))
+            textCharacter = font.render(characters[dialogue], True, (255, 255, 255))
             screen.blit(text, (100, 540))
             screen.blit(textCharacter, (100, 520))
         # time.sleep(0.5)
